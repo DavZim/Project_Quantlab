@@ -1,0 +1,54 @@
+Remember plotting in school, where you have something like $f(x)=y=a+b*x$, or $y=1+2x$, this is basically what we try to do with a regression, finding the best line given some values. 
+
+What we are trying to do, is finding an optimal $a$ and an optimal $b$, but we are naming them $\alpha$ (alpha) and from now on $\beta$ (beta), where $\alpha$ stands for the intercept (where our line crosses the y-axis), and $\beta$ stands for the slope (change in the vertical direction over change in the horizontal direction).
+
+For example, given that we have the data from below, we can draw a line through it (the methods for finding the best line will be discussed later). Say that we are looking at data of an avid basketball player. On the x-axis we put the hours she spent training in a week, the y-axis represents the number of points she scored at the weekend game. What we want to know is:
+
+- Is the training effective (more training, more points)? 
+- How many points would she be expected to get without any training? 
+- What is the expected increase in points for an additional hour of training? 
+- How much should she train to get an expected 15 points in the game?
+
+```{r, eval = T, echo = F}
+library(data.table)
+library(ggplot2)
+library(ggthemr)
+ggthemr("fresh")
+n <- 20
+func <- function(x) 1 + 0.5*x + rnorm(length(x), sd = 4)
+
+set.seed(123)
+d1 <- data.table(x = runif(n, 1, 40))
+d1$y <- func(d1$x)
+reg <- lm(y ~ x, d1)
+
+a <- coef(reg)[1]
+b <- coef(reg)[2]
+
+ar <- round(a, 2)
+br <- round(b, 2)
+
+ggplot(d1, aes(x, y)) + geom_point() +
+  geom_abline(intercept = a, slope = b, color = "red") +
+  xlab("Training Hours") + ylab("Points scored")
+
+```
+
+First we will do it graphically, then we will calculate it.
+
+Our regression line is given by the equation $y=`r ar` + `r br`*x$. How many points is she expected to score with 10 hours of training? $\hat{y} = `r ar` + `r br` *10 = `r ar + br*10`$ (notice the hat in $\hat{y}$?!, it stands for predicted. We don't know the exact number of points she would score given 10 hours of training, but we expect a certain score.)
+
+# Annotations:
+Symbol | Meaning
+-------|--------
+$y$    | Observed Value
+$\hat{y}$| Expected Value
+$\tilde{y}$| Estimated Value of parameter
+
+
+
+
+
+
+
+

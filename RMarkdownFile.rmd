@@ -1,0 +1,7 @@
+This is a text
+
+$$ E(x) = 0 $$ 
+
+```{r, eval = T}
+plot(rnorm(100))
+```

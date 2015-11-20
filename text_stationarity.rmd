@@ -1,0 +1,17 @@
+A time-series is believed to be stationary, if the mean, the variance, and the autocorrelation (covariance) stays constant over time. 
+
+This is the case if two subsamples of the time-series have the same characteristics, regardless of the intervals chosen.
+
+More formally put, stationarity is defined by the equations, which state a constant mean (independent of the selection $i$), a constant variance (again, independent of the selection $i$), and a constant covariance:
+
+$$ E(y_{1}, y_{2}, \ldots, y_{t})=E(y_{1+i}, y_{2+i}, \ldots, y_{t+i})=\mu \quad \forall i,$$
+
+$$ var(y_{1}, y_{2}, \ldots, y_{t}) = var(y_{1+i}, y_{2+i}, \ldots, y_{t+i})=\sigma^2_y \quad \forall i, $$
+
+and 
+
+$$ cov(y_{1}, y_{2}, \ldots, y_{t}) = cov(y_{1+i}, y_{2+i}, \ldots, y_{t+i}) \quad \forall i.$$
+
+The first box shows two time-series (upper graphs), one is stationary, as mean, variance, and covariance are constant, the other is non-stationary (changing mean). Below the time-series are two histograms that display the distribution of the two selected areas (red and blue), as well as the expected value (mean) for each (dotted lines), the standard deviation $\sigma = \sqrt{var(x)}$ (horizontal bars), and the covariance in form of a text.
+
+Select parts of series in the upper graph to change the selection of the blue area and to see if the mean or the variance change. You can also drag the area around. If the mean, the distribution of the selection, and the covariance stays (almost) constant, regardless of the selection, the series is believed to be stationary.

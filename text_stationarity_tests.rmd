@@ -1,0 +1,8 @@
+This section will be populated with a later version.
+
+If you are looking for stationarity-test, have a look at the `tseries`-package. It includes the following tests for unit-roots and stationarity:
+
+- Augmented-Dickey-Fuller Test `adf.test`
+- Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test `kpss.test`
+- Box-Pierce and Ljung-Box test `Box.test`
+- Phillips-Perron test `PP.test`
