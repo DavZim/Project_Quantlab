@@ -3,8 +3,7 @@
 library(shiny)
 library(shinydashboard)
 library(gridExtra)
-library(Cairo)
-library(ggthemr)
+library(ggplot2)
 library(data.table)
 library(markdown)
 library(knitr)
@@ -16,8 +15,11 @@ rmdfiles <- c("text_regression.rmd", "about.rmd", "text_stationarity.rmd",
               "text_stationarity_solutions.rmd")
 sapply(rmdfiles, knit, quiet = T)
 
-ggthemr("fresh")
-options(shiny.usecairo = TRUE)
+theme_set(theme_light())
+if ("Cairo" %in% rownames(installed.packages())) {
+  library(Cairo)
+  options(shiny.usecairo = TRUE)
+}
 
 sidebar <- function() {
   dashboardSidebar(

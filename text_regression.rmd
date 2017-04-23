@@ -12,8 +12,7 @@ For example, given that we have the data from below, we can draw a line through 
 ```{r, eval = T, echo = F}
 library(data.table)
 library(ggplot2)
-library(ggthemr)
-ggthemr("fresh")
+theme_set(theme_light())
 n <- 20
 func <- function(x) 1 + 0.5*x + rnorm(length(x), sd = 4)
 
